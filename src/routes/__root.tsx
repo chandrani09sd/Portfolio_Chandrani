@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Chandrani Bera — Backend Software Engineer" },
+      { name: "description", content: "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Chandrani Bera — Backend Software Engineer" },
+      { property: "og:description", content: "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Chandrani Bera — Backend Software Engineer" },
+      { name: "twitter:description", content: "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44203dbe-ed7b-435b-975e-d5ddf00a89d2/id-preview-9f7207a4--7af43729-e864-4312-95b9-fcd6043b8f9b.lovable.app-1784727595290.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44203dbe-ed7b-435b-975e-d5ddf00a89d2/id-preview-9f7207a4--7af43729-e864-4312-95b9-fcd6043b8f9b.lovable.app-1784727595290.png" },
     ],
     links: [
       {

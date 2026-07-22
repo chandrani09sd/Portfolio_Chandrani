@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Building software with the precision of engineering and the creativity of art.",
+          "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions.",
       },
       { property: "og:type", content: "website" },
     ],
