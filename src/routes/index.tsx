@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
-import { SectionPlaceholder } from "@/components/section-placeholder";
+import { AboutSection } from "@/components/about-section";
+import { ImpactSection } from "@/components/impact-section";
+import { ExperienceSection } from "@/components/experience-section";
+import { WorkSection } from "@/components/work-section";
+import { CertificationsSection } from "@/components/certifications-section";
+import { ContactSection } from "@/components/contact-section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
