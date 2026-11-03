@@ -1,11 +1,20 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { SectionHeading } from "@/components/section-heading";
+import coldiumShot from "@/assets/coldium-preview.jpg";
 import socialShot from "@/assets/project-social.jpg";
 import forecastShot from "@/assets/project-forecast.jpg";
 import teaserArt from "@/assets/teaser-command-center.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const coldiumWorkflow = [
+  "Discover relevant openings and save the ones worth pursuing",
+  "Find the right people — hiring managers, engineers, tech leads, recruiters",
+  "Draft a personalized referral or recruiter message",
+  "Review, edit and copy it — then reach out on LinkedIn yourself",
+  "Track applications and follow-ups from saved to offer",
+];
 
 const projects = [
   {
@@ -40,7 +49,7 @@ function Project({ p, index }: { p: (typeof projects)[number]; index: number }) 
   return (
     <div
       ref={ref}
-      className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-36"
+      className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
@@ -118,6 +127,97 @@ function Project({ p, index }: { p: (typeof projects)[number]; index: number }) 
   );
 }
 
+function ColdiumFeature() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+
+  return (
+    <div ref={ref} className="mx-auto max-w-6xl px-6 pb-10 pt-4 lg:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10% 0px" }}
+        transition={{ duration: 1.1, ease }}
+        className="overflow-hidden rounded-[36px] border border-border/70 bg-cream/60 shadow-[0_50px_110px_-45px_rgba(120,80,30,0.45)]"
+      >
+        {/* Large clickable preview — opens the live app */}
+        <a
+          href="https://linkedin-referral-copilot.onrender.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Coldium — Referral Co-pilot in a new tab"
+          className="group block overflow-hidden"
+        >
+          <motion.img
+            src={coldiumShot}
+            alt="Coldium — Referral Co-pilot, golden-hour product preview showing job discovery, prospect outreach and application tracking"
+            loading="lazy"
+            width={1920}
+            height={1088}
+            style={{ y }}
+            className="aspect-[16/9] w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.02]"
+          />
+        </a>
+
+        <div className="px-8 pb-10 pt-10 sm:px-12 sm:pb-14 sm:pt-12">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <h3 className="font-display text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-foreground sm:text-[52px]">
+              Coldium
+            </h3>
+            <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Referral Co-pilot
+            </span>
+          </div>
+
+          <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-foreground/80 sm:text-[17px]">
+            An application designed to bring job discovery, referral outreach, and application
+            tracking into one organized workflow.
+          </p>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            Find relevant opportunities, discover people at target companies, prepare personalized
+            outreach, and keep track of applications and follow-ups in one place.
+          </p>
+
+          <ol className="mt-10 grid grid-cols-1 gap-x-12 gap-y-4 sm:grid-cols-2">
+            {coldiumWorkflow.map((step, i) => (
+              <li key={step} className="flex items-baseline gap-4 border-b border-border/50 pb-4">
+                <span
+                  aria-hidden
+                  className="font-display text-[13px] font-semibold tabular-nums text-[var(--ember)]"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[14px] leading-relaxed text-foreground/80">{step}</span>
+              </li>
+            ))}
+          </ol>
+
+          <p className="mt-8 max-w-2xl text-[13px] leading-relaxed text-muted-foreground/80">
+            Coldium prepares and organizes the outreach — every message is reviewed by you, and
+            contact with people happens manually on LinkedIn. Nothing is sent automatically.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <a
+              href="https://linkedin-referral-copilot.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-[13px] tracking-wide text-background transition-all duration-500 hover:gap-3 hover:opacity-90"
+            >
+              Open Coldium
+              <span aria-hidden>↗</span>
+            </a>
+            <p className="text-[12px] tracking-[0.18em] text-muted-foreground/80">
+              React · TypeScript · Java 21 · Spring Boot · PostgreSQL
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 export function WorkSection() {
   return (
     <section id="projects" className="border-t border-border/60">
@@ -128,6 +228,8 @@ export function WorkSection() {
           title="Things I built, and the reasons they exist."
         />
       </div>
+
+      <ColdiumFeature />
 
       {projects.map((p, i) => (
         <Project key={p.title} p={p} index={i} />

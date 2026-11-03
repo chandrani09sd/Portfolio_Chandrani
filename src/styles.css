@@ -57,6 +57,19 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  :focus-visible {
+    outline: 2px solid var(--golden);
+    outline-offset: 3px;
+  }
   * {
     border-color: var(--color-border);
   }
