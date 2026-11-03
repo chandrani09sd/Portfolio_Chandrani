@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
 import { SectionHeading } from "@/components/section-heading";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -45,6 +45,8 @@ const chapters = [
 
 export function ExperienceSection() {
   const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState<number | null>(0);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 75%", "end 60%"],
@@ -58,10 +60,10 @@ export function ExperienceSection() {
           index="03"
           eyebrow="Experience"
           title="A quiet journey through enterprise systems."
-          intro="2.7+ years of backend engineering, told as chapters rather than bullet points."
+          intro="2.7+ years of backend engineering, told as chapters rather than bullet points. Open any chapter to see how it unfolded."
         />
 
-        <div ref={ref} className="relative mt-20 pl-8 sm:pl-14">
+        <div ref={ref} className="relative mt-16 pl-8 sm:pl-14 lg:mt-20">
           <div className="absolute left-[3px] top-2 h-full w-px bg-border/70 sm:left-[27px]" />
           <motion.div
             style={{ scaleY: lineScale, originY: 0 }}
@@ -70,39 +72,85 @@ export function ExperienceSection() {
             <div className="h-full w-full bg-gradient-to-b from-[var(--golden)] to-[var(--ember)]" />
           </motion.div>
 
-          <div className="space-y-20 lg:space-y-28">
-            {chapters.map((c, i) => (
-              <motion.article
-                key={c.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15% 0px" }}
-                transition={{ duration: 1, ease, delay: 0.05 }}
-                className="relative"
-              >
-                <span className="absolute -left-8 top-2 h-[9px] w-[9px] rounded-full bg-[var(--golden)] ring-4 ring-background sm:-left-14" />
-                <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                  {c.chapter}
-                </span>
-                <h3 className="mt-4 font-display text-2xl font-semibold tracking-[-0.02em] text-foreground sm:text-[32px]">
-                  {c.title}
-                </h3>
-                <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                  {c.body}
-                </p>
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {c.notes.map((n) => (
-                    <li
-                      key={n}
-                      className="rounded-full border border-border/70 bg-cream/60 px-4 py-1.5 text-[12px] tracking-wide text-foreground/70"
-                    >
-                      {n}
-                    </li>
-                  ))}
-                </ul>
-                <span className="sr-only">{i + 1}</span>
-              </motion.article>
-            ))}
+          <div className="space-y-4">
+            {chapters.map((c, i) => {
+              const isOpen = open === i;
+              return (
+                <motion.article
+                  key={c.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
+                  transition={{ duration: 0.9, ease, delay: 0.03 }}
+                  className="relative"
+                >
+                  <motion.span
+                    aria-hidden
+                    animate={{ scale: isOpen ? 1.5 : 1 }}
+                    transition={{ duration: 0.5, ease }}
+                    className="absolute -left-8 top-[22px] h-[9px] w-[9px] rounded-full bg-[var(--golden)] ring-4 ring-background sm:-left-14"
+                  />
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`experience-chapter-${i}`}
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className={`w-full rounded-[22px] border px-6 py-5 text-left transition-all duration-500 sm:px-8 ${
+                      isOpen
+                        ? "border-border/70 bg-cream shadow-[0_18px_50px_-26px_rgba(120,80,30,0.35)]"
+                        : "border-transparent hover:border-border/70 hover:bg-cream/50"
+                    }`}
+                  >
+                    <span className="flex items-center justify-between gap-6">
+                      <span className="flex items-baseline gap-4 sm:gap-6">
+                        <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+                          {c.chapter}
+                        </span>
+                        <span className="font-display text-xl font-semibold tracking-[-0.02em] text-foreground sm:text-2xl">
+                          {c.title}
+                        </span>
+                      </span>
+                      <motion.span
+                        aria-hidden
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.4, ease }}
+                        className="shrink-0 text-lg text-muted-foreground"
+                      >
+                        +
+                      </motion.span>
+                    </span>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="detail"
+                          id={`experience-chapter-${i}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.5, ease }}
+                          className="overflow-hidden"
+                        >
+                          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                            {c.body}
+                          </p>
+                          <ul className="mt-5 flex flex-wrap gap-2 pb-1">
+                            {c.notes.map((n) => (
+                              <li
+                                key={n}
+                                className="rounded-full border border-border/70 bg-background/60 px-4 py-1.5 text-[12px] tracking-wide text-foreground/70"
+                              >
+                                {n}
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </div>
