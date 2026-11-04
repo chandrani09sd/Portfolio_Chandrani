@@ -17,10 +17,23 @@ export default defineConfig(async ({ command }) => {
 
   if (command === "build") {
     const { nitro } = await import("nitro/vite");
+    const isVercel = Boolean(process.env.VERCEL);
     plugins.push(
       nitro({
-        preset: "cloudflare-module",
-      })
+        preset: isVercel ? "vercel" : (process.env.NITRO_PRESET || "cloudflare-module"),
+      }),
+      {
+        name: "vercel-dist-compatibility",
+        closeBundle: async () => {
+          const fs = await import("node:fs/promises");
+          const srcDir = isVercel ? ".vercel/output/static" : ".output/public";
+          try {
+            await fs.cp(srcDir, "dist", { recursive: true });
+          } catch {
+            // fallback
+          }
+        },
+      }
     );
   }
 
