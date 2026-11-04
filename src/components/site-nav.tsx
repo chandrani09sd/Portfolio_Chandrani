@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import resumePdf from "@/assets/resume.pdf";
+import { handleResumeDownload } from "@/lib/resume-download";
 import { RecruiterModal } from "@/components/recruiter-modal";
 
 const links = [
@@ -70,19 +71,17 @@ export function SiteNav() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500 ease-out ${
-          scrolled
-            ? "border-b border-border/60 bg-background/85 backdrop-blur-xl shadow-sm"
-            : "border-b border-transparent bg-transparent"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500 ease-out ${scrolled
+          ? "border-b border-border/60 bg-background/85 backdrop-blur-xl shadow-sm"
+          : "border-b border-transparent bg-transparent"
+          }`}
       >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         <a
           href="#top"
           onClick={(e) => handleAnchorClick(e, "#top")}
-          className={`font-display text-[15px] font-medium tracking-tight transition-colors duration-500 ${
-            scrolled ? "text-foreground" : "text-white"
-          }`}
+          className={`font-display text-[15px] font-medium tracking-tight transition-colors duration-500 ${scrolled ? "text-foreground" : "text-white"
+            }`}
         >
           Chandrani&nbsp;Bera
         </a>
@@ -94,15 +93,14 @@ export function SiteNav() {
                 <a
                   href={l.href}
                   onClick={(e) => handleAnchorClick(e, l.href)}
-                  className={`relative text-[13px] tracking-wide transition-colors duration-300 ${
-                    scrolled
-                      ? isActive
-                        ? "font-medium text-[var(--ember)]"
-                        : "text-foreground/75 hover:text-foreground"
-                      : isActive
-                        ? "font-medium text-white"
-                        : "text-white/80 hover:text-white"
-                  }`}
+                  className={`relative text-[13px] tracking-wide transition-colors duration-300 ${scrolled
+                    ? isActive
+                      ? "font-medium text-[var(--ember)]"
+                      : "text-foreground/75 hover:text-foreground"
+                    : isActive
+                      ? "font-medium text-white"
+                      : "text-white/80 hover:text-white"
+                    }`}
                 >
                   {l.label}
                 </a>
@@ -120,11 +118,10 @@ export function SiteNav() {
         <div className="flex items-center gap-3 md:gap-5">
           <button
             onClick={() => setShowQuickView(true)}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-medium transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${
-              scrolled
-                ? "border border-amber-600/30 bg-amber-500/10 text-amber-900 hover:bg-amber-500/20 shadow-xs"
-                : "border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
-            }`}
+            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-medium transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${scrolled
+              ? "border border-amber-600/30 bg-amber-500/10 text-amber-900 hover:bg-amber-500/20 shadow-xs"
+              : "border border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20"
+              }`}
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>Executive Brief</span>
@@ -136,18 +133,17 @@ export function SiteNav() {
               target="_blank"
               rel="noopener noreferrer"
               download="Chandrani_Bera_Resume.pdf"
-              className={`text-[13px] tracking-wide transition-colors duration-500 ${
-                scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
-              }`}
+              onClick={handleResumeDownload}
+              className={`text-[13px] tracking-wide transition-colors duration-500 cursor-pointer ${scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
+                }`}
             >
               Resume ↗
             </a>
             <a
               href="#contact"
               onClick={(e) => handleAnchorClick(e, "#contact")}
-              className={`text-[13px] tracking-wide transition-colors duration-500 ${
-                scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
-              }`}
+              className={`text-[13px] tracking-wide transition-colors duration-500 ${scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
+                }`}
             >
               Say hello →
             </a>
@@ -158,9 +154,8 @@ export function SiteNav() {
       {/* Butter-smooth Golden-Hour Scroll Progress Line */}
       <motion.div
         style={{ scaleX }}
-        className={`h-[2px] w-full origin-left bg-gradient-to-r from-[var(--golden)] via-[var(--ember)] to-[var(--golden)] transition-opacity duration-500 ${
-          scrolled ? "opacity-90" : "opacity-0"
-        }`}
+        className={`h-[2px] w-full origin-left bg-gradient-to-r from-[var(--golden)] via-[var(--ember)] to-[var(--golden)] transition-opacity duration-500 ${scrolled ? "opacity-90" : "opacity-0"
+          }`}
       />
     </motion.header>
 

@@ -84,7 +84,4 @@ bun run build
 
 ---
 
-## 📄 License & Attribution
-
-Designed and engineered by **Chandrani Bera**.  
-Source code is open under the [MIT License](LICENSE).
+Designed and engineered with care by **Chandrani Bera**.
