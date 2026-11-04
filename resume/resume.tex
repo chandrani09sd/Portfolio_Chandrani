@@ -1,0 +1,172 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+% Adjust margins to fit strictly on 1 page
+\geometry{letterpaper, margin=0.42in, top=0.38in, bottom=0.38in}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% URL style
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1.5pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1.5pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectSubheading}[3]{
+  \vspace{-1.5pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \emph{\small #2} & \textit{\small #3} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label=\textbullet]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Chandrani Bera} \\ \vspace{2pt}
+    \textbf{\large Backend Software Engineer} \\ \vspace{3pt}
+    \small 
+    \href{mailto:chandrani09.sd@gmail.com}{\underline{chandrani09.sd@gmail.com}} $|$ 
+    +91-6296077728 $|$ 
+    Bangalore, India $|$ 
+    \href{https://www.linkedin.com/in/chandrani-bera-dev/}{\underline{linkedin.com/in/chandrani-bera-dev}} $|$ 
+    \href{https://github.com/chandrani09sd}{\underline{github.com/chandrani09sd}}
+\end{center}
+\vspace{-10pt}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Backend Software Engineer with $\sim$3 years of experience architecting and maintaining resilient, secure backend systems for enterprise banking platforms (Standard Chartered Bank). Specializes in Java (8/11/17/21), Spring Boot microservices, high-throughput REST APIs, zero-downtime Kubernetes deployments, and enterprise security hardening. Proven track record in developer tooling automation, cross-border production releases, and mission-critical defect resolution.}
+\vspace{-3pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.0in, label={}]
+    \small{\item{
+     \textbf{Languages:}{ Java (8/11/17/21), Python, SQL, C} \\
+     \textbf{Frameworks \& Libraries:}{ Spring Boot, Spring MVC, Spring Security, Spring Data JPA, Hibernate, JUnit 5, Mockito, Maven} \\
+     \textbf{Cloud, DevOps \& Tools:}{ Docker, Kubernetes, Azure DevOps (CI/CD), Git, Apache Airflow, SonarQube, Tomcat, Postman, Linux} \\
+     \textbf{APIs \& Architecture:}{ RESTful APIs, Microservices Architecture, Kong API Gateway, OpenAPI/Swagger, Distributed Tracing} \\
+     \textbf{Databases \& Practices:}{ PostgreSQL, MySQL, Enterprise Security Hardening (OWASP, Penetration Testing), Agile/Scrum, RCA}
+    }}
+ \end{itemize}
+\vspace{-10pt}
+
+%-----------EXPERIENCE-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Capgemini}{09/2025 -- Present}
+      {Backend Software Engineer -- IBanking Application, Standard Chartered Bank (SCB)}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Spearheaded enterprise tech stack modernization to \textbf{Java 17 and Spring Boot 3.x}: upgraded base parent POMs, resolved complex Maven dependency conflicts, refactored breaking API changes, and overhauled test suites.}
+        \resumeItem{Engineered a one-click developer installer automating certificates, secrets, ConfigMaps, and Logback configurations, shrinking local onboarding from \textbf{3--4 days to under 2 minutes}; recognized at internal engineering forum.}
+        \resumeItem{Resolved \textbf{30+ critical production defects} across Malaysia, Singapore, and Hong Kong digital banking platforms, driving end-to-end fixes across development, SIT/UAT, security validation, and production rollout.}
+        \resumeItem{Remediated \textbf{20+ high-severity security vulnerabilities}, drove penetration testing (SPT) compliance to secure production sign-offs, and authored \textbf{200+} JUnit and regression test cases ensuring continuous defect-free releases.}
+        \resumeItem{Served as primary release developer for Hong Kong rollout, coordinating multi-branch release workflows, SIT/UAT/OAT gates, and production sign-offs with cross-functional global stakeholders.}
+        \resumeItem{Validated Singapore MLR40 performance readiness by verifying batch workflows, test datasets, and API endpoints; scheduled, executed, and monitored automated data processing pipelines via \textbf{Apache Airflow}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Capgemini}{07/2024 -- 09/2025}
+      {Backend Software Engineer -- CEMS Application, Standard Chartered Bank (SCB)}{Bangalore, India}
+      \resumeItemListStart
+        \resumeItem{Remediated \textbf{60+ security vulnerabilities} (including 20+ critical CVEs), bolstering enterprise compliance readiness and runtime stability.}
+        \resumeItem{Elevated JUnit test coverage from \textbf{40\% to 60\% within one month} by implementing 120+ targeted unit tests and 200+ automated regression scenarios.}
+        \resumeItem{Investigated and resolved HTTP 5xx production incidents by tracing end-to-end request lifecycles (REST API $\rightarrow$ service $\rightarrow$ database) and analyzing Kubernetes runtime pod logs.}
+        \resumeItem{Validated CI/CD pipeline builds in Azure DevOps and deployed approved Docker container images into Kubernetes clusters, monitoring pod health and metrics.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectSubheading
+        {Coldium -- Job Search \& Referral Copilot}{Java 21, Spring Boot, React, TypeScript, PostgreSQL}{08/2026 -- Present}
+        \resumeItemListStart
+          \resumeItem{Architected a full-stack job application copilot enabling candidates to discover openings, target relevant hiring managers, and structure personalized LinkedIn outreach with end-to-end application tracking.}
+          \resumeItem{Built robust RESTful APIs in Spring Boot with PostgreSQL persistence, implementing clean data modeling, secure session handling, and optimized indexing for responsive search operations.}
+        \resumeItemListEnd
+      \resumeProjectSubheading
+        {Social Media Web Platform}{Java, Spring Boot, Spring Security, Spring Data JPA, MySQL, Thymeleaf}{01/2024 -- 05/2024}
+        \resumeItemListStart
+          \resumeItem{Engineered a secure full-stack social platform supporting user authentication, session security, profile management, and interactive content feeds; designed high-throughput RESTful APIs with MVC rendering.}
+        \resumeItemListEnd
+      \resumeProjectSubheading
+        {Sales Forecasting Application}{Python, Machine Learning, Scikit-learn, React, REST APIs}{}
+        \resumeItemListStart
+          \resumeItem{Constructed an end-to-end sales prediction application; developed regression models and exposed RESTful prediction endpoints for real-time analytics with an interactive React dashboard.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\begin{itemize}[leftmargin=0.15in, label=\textbullet]
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \small{
+      \item \textbf{Microsoft Certified:} Azure Fundamentals (AZ-900) \hfill \textbf{Postman Academy:} API Testing Certification (v12)
+      \item \textbf{Oracle:} SQL / PL-SQL Certification \hfill \textbf{Banking Domain:} L1 \& L2 Certifications
+    }
+\end{itemize}
+\vspace{-8pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Kalinga Institute of Industrial Technology}{06/2019 -- 06/2023}
+      {Bachelor of Technology (B.Tech) in Information Technology}{Bhubaneswar, India}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}

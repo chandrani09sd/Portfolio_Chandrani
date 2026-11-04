@@ -1,264 +1,90 @@
-# Golden Hour Portfolio
+# Portfolio · Chandrani Bera
 
-You are a senior product designer, motion designer, and frontend engineer.
+> **Building software with the precision of engineering and the creativity of art.**  
+> Official developer portfolio of [Chandrani Bera](https://www.linkedin.com/in/chandrani-bera-dev/) — Backend Software Engineer specializing in enterprise banking systems, scalable APIs, and distributed microservices.
 
-We are NOT building a complete portfolio today.
+---
 
-We are ONLY building the visual foundation and first impression.
+## 🌟 Overview
 
-Think like Apple, not like a developer portfolio.
+A modern, high-performance portfolio crafted with a warm golden-hour aesthetic. Designed to convey engineering rigor, distributed systems experience, and a holistic, welcoming personal narrative for engineering leaders and executive recruiters.
 
-----------------------------------
+* **Live Portfolio**: [chandrani.dev](https://chandrani-bera.com)
+* **LinkedIn**: [linkedin.com/in/chandrani-bera-dev](https://www.linkedin.com/in/chandrani-bera-dev/)
+* **Email**: [chandrani09.sd@gmail.com](mailto:chandrani09.sd@gmail.com)
+* **GitHub**: [@chandrani09sd](https://github.com/chandrani09sd)
 
-ABOUT ME
+---
 
-Name:
+## 🚀 Key Highlights & Sections
 
-Chandrani Bera
+1. **Executive Hero & Proof Strip**: Instant glance into core metrics (2.7+ yrs enterprise experience, 30+ SIT/prod fixes, 80+ critical CVEs remediated, < 2 min ScSetup onboarding).
+2. **01 — About / Core Philosophy**: Engineering mindset rooted in precision and creative problem-solving.
+3. **02 — Enterprise Systems Impact**: Detailed breakdown of multi-region microservices for Standard Chartered Bank (via Capgemini), Kong Gateway routing, and automated security scanning.
+4. **03 — Professional Experience**: Timeline of software engineering roles, key achievements, and business metrics.
+5. **Personal Interlude (Between Code and Canvas)**: A human, memorable look at life beyond the terminal — oil painting, sunset walks, travel, and culinary joys.
+6. **04 — Featured Work & Open Source**: Production architectures and high-impact developer tooling (ScSetup, LinkedIn Referral Copilot, Colddm).
+7. **05 — Certifications & Industry Recognition**: Verified enterprise credentials with animated golden-hour visual badges.
+8. **Executive Brief Modal**: Teleported at-a-glance briefing card with instant email copy and single-click resume download.
+9. **Interactive Sunset Atmosphere**: Real-time atmospheric sunset canvas with dynamic warm lighting, dusk particles, and responsive viewport geometry.
 
-Role:
+---
 
-Backend Software Engineer
+## 🛠️ Tech Stack & Architecture
 
-Experience:
+* **Framework**: [TanStack Start](https://tanstack.com/start) & [React 19](https://react.dev/)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **Styling & Design System**: [Tailwind CSS](https://tailwindcss.com/) with CSS variables
+* **Motion & Animation**: [Framer Motion](https://www.framer-motion.com/) with spring physics and hardware-accelerated transforms
+* **Icons**: [Lucide React](https://lucide.dev/)
+* **Bundler & Runtime**: [Vite 6](https://vite.dev/) & [Bun](https://bun.sh/)
+* **Deployment Target**: Cloudflare Pages / Nitro
 
-2.7+ years
+---
 
-I currently work on enterprise banking applications.
+## 💻 Local Development
 
-Personality
+### Prerequisites
 
-• Calm
+Ensure you have [Bun](https://bun.sh/) or [Node.js](https://nodejs.org/) installed:
 
-• Artistic
-
-• Funny
-
-• Ambivert
-
-• Painter
-
-• Food lover
-
-• Loves sunsets
-
-• Loves oceans
-
-• Loves mountains
-
-• Sometimes a workaholic
-
-----------------------------------
-
-DESIGN GOAL
-
-When someone lands on my website, I DON'T want them to think:
-
-"Another software engineer."
-
-Instead I want them to think
-
-"This feels peaceful."
-
-"This feels premium."
-
-"I want to keep scrolling."
-
-Only later should they discover that I'm a backend engineer.
-
-----------------------------------
-
-STYLE
-
-Inspired by
-
-Apple
-
-Minimal
-
-Elegant
-
-Luxury
-
-Warm
-
-Golden Hour
-
-Nature
-
-Lots of whitespace
-
-Premium typography
-
-No developer clichés.
-
-No glowing code.
-
-No hacker theme.
-
-No terminal windows.
-
-No neon.
-
-No dark mode.
-
-----------------------------------
-
-TYPOGRAPHY
-
-Use SF Pro Display if available.
-
-If not available use Inter.
-
-Large headings.
-
-Beautiful spacing.
-
-----------------------------------
-
-HERO SECTION
-
-The uploaded beach photograph should become the inspiration for the hero section.
-
-Do NOT simply place the photo.
-
-Blend it beautifully into the page.
-
-The hero should feel cinematic.
-
-Use subtle motion.
-
-Soft parallax.
-
-Very gentle wave movement.
-
-Warm golden lighting.
-
-Keep everything elegant.
-
-The layout should feel like an Apple landing page.
-
-----------------------------------
-
-TEXT
-
-Headline
-
-Building software with the precision of engineering and the creativity of art.
-
-Subheading
-
-Backend Software Engineer building enterprise banking systems, scalable APIs and production-ready solutions.
-
-Buttons
-
-Explore My Journey
-
-Download Resume
-
-The buttons should feel premium.
-
-----------------------------------
-
-NAVIGATION
-
-Sticky
-
-Transparent initially
-
-Turns white while scrolling
-
-Minimal
-
-Elegant
-
-Navigation
-
-About
-
-Experience
-
-Skills
-
-Projects
-
-Contact
-
-----------------------------------
-
-IMPORTANT
-
-DO NOT build all the sections.
-
-Instead create elegant placeholders for
-
-About
-
-Experience
-
-Skills
-
-Projects
-
-Contact
-
-Each placeholder should simply indicate where the section will continue later.
-
-----------------------------------
-
-ANIMATIONS
-
-Very subtle.
-
-Luxury.
-
-Apple-like.
-
-Nothing flashy.
-
-Nothing distracting.
-
-The page should breathe.
-
-----------------------------------
-
-TECH STACK
-
-Next.js
-
-TypeScript
-
-TailwindCSS
-
-Framer Motion
-
-Component based architecture.
-
-Generate clean production-quality code.
-
-Do not rush into building the full website.
-
-Focus only on creating the strongest first impression possible.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://chandrani.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7af43729-e864-4312-95b9-fcd6043b8f9b).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```bash
+bun --version
+# or
+node --version
 ```
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/chandrani09sd/Portfolio_Chandrani.git
+cd Portfolio_Chandrani
+
+# Install dependencies
+bun install
+# or: npm install
+```
+
+### Run Development Server
+
+```bash
+bun run dev
+# or: npm run dev
+```
+
+The application will be live at `http://127.0.0.1:3000`.
+
+### Production Build
+
+```bash
+bun run build
+# or: npm run build
+```
+
+---
+
+## 📄 License & Attribution
+
+Designed and engineered by **Chandrani Bera**.  
+Source code is open under the [MIT License](LICENSE).

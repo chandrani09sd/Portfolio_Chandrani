@@ -60,6 +60,9 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: clip;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -72,6 +75,22 @@
   }
   * {
     border-color: var(--color-border);
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--golden) 45%, transparent) var(--color-background);
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--golden) 45%, transparent);
+    border-radius: 9999px;
+    border: 2px solid var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--golden);
   }
   html, body {
     background-color: var(--color-background);
@@ -80,6 +99,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);

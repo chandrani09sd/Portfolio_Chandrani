@@ -1,6 +1,9 @@
 import { motion, useMotionValue, useSpring, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import heroAsset from "@/assets/hero-sunset.jpeg.asset.json";
+import heroSunset from "@/assets/hero-sunset.jpg";
+import resumePdf from "@/assets/resume.pdf";
+import { handleResumeDownload } from "@/lib/resume-download";
+import { ArrowDownToLine } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -58,7 +61,7 @@ export function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative isolate h-[100svh] min-h-[680px] w-full overflow-hidden bg-ink"
+      className="relative isolate min-h-[100svh] sm:h-[100svh] w-full overflow-hidden bg-ink"
     >
       {/* Scene wrapper (scroll parallax) */}
       <motion.div style={{ y: sceneY }} className="absolute inset-0 -z-10 will-change-transform">
@@ -110,7 +113,7 @@ export function Hero() {
           className="absolute inset-0"
         >
           <motion.img
-            src={heroAsset.url}
+            src={heroSunset}
             alt="Chandrani at golden hour by the ocean"
             initial={{ scale: 1.06, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -125,7 +128,7 @@ export function Hero() {
         {/* Warm gradient wash — improves headline contrast without darkening the sky */}
         <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(60,25,10,0.55)_0%,rgba(90,45,20,0.28)_35%,rgba(120,60,25,0.05)_60%,transparent_80%)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/25 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-b from-transparent via-background/25 to-background" />
+        <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-b from-transparent via-[rgba(242,167,101,0.2)] to-[rgba(242,167,101,0.45)]" />
 
         {/* Animated waves (SVG) at the shoreline */}
         <svg
@@ -165,28 +168,38 @@ export function Hero() {
             <path fill="url(#waveA)" d="M0,120 C240,150 480,90 720,120 C960,150 1200,90 1440,120 L1440,220 L0,220 Z" />
           )}
         </svg>
+
+        {/* Seamless horizon melt directly into the About section warm cream background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44 sm:h-56"
+          style={{
+            background:
+              "linear-gradient(180deg, transparent 0%, rgba(250,246,238,0.25) 30%, rgba(250,246,238,0.8) 75%, var(--background) 100%)",
+          }}
+        />
       </motion.div>
 
       {/* Content — upper-left, out of the silhouette's way */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-24 lg:px-10"
+        className="relative z-20 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 pt-32 sm:pt-36 lg:pt-40 lg:px-10"
       >
-        <div className="max-w-[36rem]">
+        <div className="max-w-[36rem] pt-3 sm:pt-5 lg:pt-7">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.4, ease }}
-            className="mb-8 text-[11px] font-medium uppercase tracking-[0.28em] text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.35)]"
+            className="mb-5 sm:mb-8 text-[10.5px] sm:text-[11px] font-medium uppercase tracking-[0.16em] sm:tracking-[0.28em] text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.35)]"
           >
-            Chandrani Bera — Est. Golden Hour
+            <span className="font-semibold text-white">Chandrani Bera</span> · Backend Software Engineer · Enterprise Banking Platforms
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.3, delay: 0.55, ease }}
-            className="text-balance font-display text-[34px] font-semibold leading-[1.06] tracking-[-0.03em] text-white sm:text-[46px] lg:text-[60px] [text-shadow:0_2px_30px_rgba(50,20,5,0.45)]"
+            className="text-balance font-display text-[29px] sm:text-[46px] lg:text-[60px] font-semibold leading-[1.08] sm:leading-[1.06] tracking-[-0.03em] text-white [text-shadow:0_2px_30px_rgba(50,20,5,0.45)]"
           >
             Building software with the precision of engineering and the creativity of art.
           </motion.h1>
@@ -195,7 +208,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.9, ease }}
-            className="mt-10 max-w-xl text-balance text-[15px] leading-relaxed text-white/90 sm:text-[16px] [text-shadow:0_1px_16px_rgba(50,20,5,0.35)]"
+            className="mt-6 sm:mt-10 max-w-xl text-balance text-[14px] sm:text-[16px] leading-relaxed text-white/90 [text-shadow:0_1px_16px_rgba(50,20,5,0.35)]"
           >
             Backend Software Engineer building enterprise banking systems, scalable APIs, and
             production-ready solutions.
@@ -205,11 +218,26 @@ export function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 1.15, ease }}
-            className="mt-12 flex flex-wrap items-center gap-3"
+            className="relative z-30 mt-7 sm:mt-12 flex flex-wrap items-center gap-3"
           >
             <a
               href="#about"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-ink shadow-[0_10px_40px_-12px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-14px_rgba(0,0,0,0.55)]"
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById("about");
+                if (target) {
+                  const y = target.getBoundingClientRect().top + window.scrollY - 70;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                } else {
+                  const queryEl = document.querySelector("#about");
+                  if (queryEl) {
+                    queryEl.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    window.location.hash = "about";
+                  }
+                }
+              }}
+              className="group relative z-30 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-ink shadow-[0_10px_40px_-12px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-14px_rgba(0,0,0,0.55)] cursor-pointer select-none"
             >
               Explore My Journey
               <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">
@@ -217,11 +245,33 @@ export function Hero() {
               </span>
             </a>
             <a
-              href="#resume"
-              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-6 py-3 text-[14px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
+              href={resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Chandrani_Bera_Resume.pdf"
+              onClick={handleResumeDownload}
+              className="relative z-30 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-[14px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 cursor-pointer select-none"
             >
+              <ArrowDownToLine className="h-4 w-4 text-[var(--golden)]" />
               Download Resume
             </a>
+          </motion.div>
+
+          {/* Executive Proof Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 1.35, ease }}
+            className="mt-6 sm:mt-8 inline-flex w-fit flex-wrap items-center gap-x-3 gap-y-1.5 rounded-2xl border border-white/20 bg-black/35 px-3.5 py-2 sm:px-4 sm:py-2.5 backdrop-blur-md text-[11.5px] sm:text-[12.5px] text-white/90 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+          >
+            <span className="inline-flex items-center gap-1.5 font-medium text-[var(--golden)]">
+              <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              Standard Chartered Bank
+            </span>
+            <span className="text-white/35">·</span>
+            <span>Multi-Region Banking (SG · HK · MY)</span>
+            <span className="text-white/35">·</span>
+            <span className="text-white/80">Java 21 · Spring Boot · Microservices</span>
           </motion.div>
         </div>
 
@@ -230,7 +280,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, delay: 1.6, ease }}
-          className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center"
+          className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center z-20"
         >
           <motion.div
             animate={{ y: [0, 6, 0] }}

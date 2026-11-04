@@ -2,8 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { AboutSection } from "@/components/about-section";
+import { PersonalTransitionGoa } from "@/components/personal-transition-goa";
 import { ImpactSection } from "@/components/impact-section";
 import { ExperienceSection } from "@/components/experience-section";
+import { BeyondTerminalSection } from "@/components/beyond-terminal-section";
 import { WorkSection } from "@/components/work-section";
 import { CertificationsSection } from "@/components/certifications-section";
 import { ContactSection } from "@/components/contact-section";
@@ -11,17 +13,17 @@ import { ContactSection } from "@/components/contact-section";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Chandrani Bera — Backend Software Engineer" },
+      { title: "Chandrani Bera — Backend Software Engineer & Creative Mind" },
       {
         name: "description",
         content:
-          "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions.",
+          "Chandrani Bera — Backend Software Engineer building enterprise banking systems, scalable microservices, and creative software with the precision of engineering and the patience of an artist.",
       },
       { property: "og:title", content: "Chandrani Bera — Backend Software Engineer" },
       {
         property: "og:description",
         content:
-          "Backend Software Engineer building enterprise banking systems, scalable APIs, and production-ready solutions.",
+          "Backend Software Engineer building enterprise banking systems, scalable microservices, and creative software.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -32,22 +34,18 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-[var(--golden)]/30 selection:text-foreground">
       <SiteNav />
-      <main>
+      <main id="top">
         <Hero />
         <AboutSection />
+        <PersonalTransitionGoa />
         <ImpactSection />
         <ExperienceSection />
+        <BeyondTerminalSection />
         <WorkSection />
         <CertificationsSection />
         <ContactSection />
-        <footer className="border-t border-border/60">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-10 text-[12px] uppercase tracking-[0.28em] text-muted-foreground sm:flex-row sm:items-center lg:px-10">
-            <span>© {new Date().getFullYear()} Chandrani Bera</span>
-            <span>Made slowly, at golden hour.</span>
-          </div>
-        </footer>
       </main>
     </div>
   );
