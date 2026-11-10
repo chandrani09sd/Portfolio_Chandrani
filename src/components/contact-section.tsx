@@ -58,13 +58,14 @@ export function ContactSection() {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="relative h-full w-full max-w-7xl"
+          className="relative h-full w-full"
         >
           {/* 
             THE SUNSET PHOTOGRAPH (City Overlook Sunset):
             Framed at object-[center_62%] to prominently feature the glowing orange sunset horizon
-            and sparkling city lights. The dark upper clouds are smoothly masked out, allowing the
-            photo to dissolve naturally into the warm sunset atmosphere and the cream portfolio above.
+            and sparkling city lights. The dark upper clouds and bottom city horizon are smoothly
+            masked with multi-stop radial and linear gradients, allowing the photo to dissolve
+            seamlessly into the dark obsidian-ember footer without any hard edge or abrupt cutoff.
           */}
           <img
             src={citySunset}
@@ -72,9 +73,9 @@ export function ContactSection() {
             className="h-full w-full object-cover object-[center_62%] lg:object-[center_60%]"
             style={{
               maskImage:
-                "linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.8) 48%, black 65%, black 88%, rgba(0,0,0,0.4) 96%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, transparent 6%, rgba(0,0,0,0.3) 18%, rgba(0,0,0,0.9) 42%, black 58%, black 72%, rgba(0,0,0,0.6) 82%, rgba(0,0,0,0.15) 92%, transparent 100%), linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 4%, black 12%, black 88%, rgba(0,0,0,0.5) 96%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.8) 48%, black 65%, black 88%, rgba(0,0,0,0.4) 96%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, transparent 6%, rgba(0,0,0,0.3) 18%, rgba(0,0,0,0.9) 42%, black 58%, black 72%, rgba(0,0,0,0.6) 82%, rgba(0,0,0,0.15) 92%, transparent 100%), linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 4%, black 12%, black 88%, rgba(0,0,0,0.5) 96%, transparent 100%)",
               maskComposite: "intersect",
               WebkitMaskComposite: "source-in",
             }}
@@ -82,7 +83,7 @@ export function ContactSection() {
 
           {/* Warm sunset orange blend overlay over upper clouds */}
           <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-[60%]"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[50%]"
             style={{
               background:
                 "linear-gradient(180deg, rgba(232,138,85,0.75) 0%, rgba(212,115,67,0.45) 40%, transparent 100%)",
@@ -100,6 +101,9 @@ export function ContactSection() {
                 "radial-gradient(ellipse at 50% 55%, rgba(255,220,150,0.9) 0%, rgba(244,150,80,0.4) 50%, transparent 75%)",
             }}
           />
+
+          {/* Smooth ambient bottom transition curtain blending gently into deep obsidian-ember #100401 */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-b from-transparent via-[#100401]/60 to-[#100401]" />
         </motion.div>
       </div>
 
@@ -219,7 +223,7 @@ export function ContactSection() {
         </div>
 
         {/* Seamless Integrated Final Footer at the Base of the Sunset */}
-        <div className="relative z-10 w-full border-t border-white/15 bg-black/40 py-7 backdrop-blur-sm text-[11px] uppercase tracking-[0.25em] text-white/70">
+        <div className="relative z-10 w-full border-t border-white/10 bg-[#100401]/85 py-7 backdrop-blur-md text-[11px] uppercase tracking-[0.25em] text-white/70">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 sm:flex-row lg:px-10">
             <span>© {new Date().getFullYear()} Chandrani Bera · Bangalore, India</span>
             <span className="hidden sm:inline">Crafted slowly, at golden hour.</span>

@@ -30,32 +30,32 @@ const personalityCards = [
     role: "Enterprise Banking Systems",
     quote: "I enjoy building secure, reliable backend systems that solve real problems.",
     detail:
-      "2.7+ years engineering high-availability banking services across Singapore, Hong Kong, and Malaysia with zero tolerance for failure.",
+      "2.7+ years engineering high-availability banking services across Singapore, Hong Kong, and Malaysia with strict transactional integrity.",
     icon: Server,
     accent: "var(--ember)",
     badge: "High Reliability",
   },
   {
+    id: "craft",
+    title: "Deliberate Craftsmanship",
+    role: "Systems & Architecture",
+    quote: "Great software and thoughtful art both demand patience, structure, and respect for the process.",
+    detail:
+      "Breaking complex domain models into decoupled, maintainable abstractions — choosing architectural clarity and long-term durability over hasty shortcuts.",
+    icon: Puzzle,
+    accent: "var(--ember)",
+    badge: "Systems Thinking",
+  },
+  {
     id: "nature",
     title: "Nature & Horizons",
-    role: "Sunsets & Oceans",
+    role: "Sunsets & Perspectives",
     quote: "Sunsets, coastal roads, and quiet landscapes remind me that simplicity can be beautiful.",
     detail:
       "Time spent near the water or exploring vibrant streets grounds my thinking and brings calm clarity to complex system design.",
     icon: Sun,
     accent: "var(--golden)",
     badge: "Golden Hour Mindset",
-  },
-  {
-    id: "solver",
-    title: "The Problem Solver",
-    role: "Decomposition & RCA",
-    quote: "I enjoy breaking complex problems into smaller pieces and finding thoughtful solutions.",
-    detail:
-      "From untangling 5xx production spikes to cutting developer onboarding from 4 days to 2 minutes with automated tooling.",
-    icon: Puzzle,
-    accent: "var(--ember)",
-    badge: "Root Cause Focus",
   },
 ];
 
@@ -121,10 +121,11 @@ export function AboutSection() {
             transition={{ duration: 0.9, ease, delay: 0.15 }}
             className="mt-5 text-[16px] leading-relaxed text-foreground/80 sm:text-[17px]"
           >
-            I build secure, high-throughput backend services for enterprise banking applications.
-            Outside the terminal, I pick up brushes, chase sunset horizons, and find inspiration in
-            everyday candid moments. To me, clean code and art share the same rhythm: quiet patience,
-            honest structure, and relentless attention to detail.
+            I am a backend software engineer dedicated to building resilient, secure, and high-throughput
+            services for multi-region digital banking platforms. Outside the terminal, I pick up brushes,
+            chase sunset horizons, and find creative balance in everyday candid moments. To me, clean code
+            and painting share the same core rhythm: quiet patience, deliberate structure, and an uncompromising
+            eye for detail.
           </motion.p>
         </div>
 

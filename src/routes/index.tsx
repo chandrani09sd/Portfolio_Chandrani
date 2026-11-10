@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { AboutSection } from "@/components/about-section";
-import { PersonalTransitionGoa } from "@/components/personal-transition-goa";
 import { ImpactSection } from "@/components/impact-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { BeyondTerminalSection } from "@/components/beyond-terminal-section";
@@ -39,7 +38,6 @@ function Index() {
       <main id="top">
         <Hero />
         <AboutSection />
-        <PersonalTransitionGoa />
         <ImpactSection />
         <ExperienceSection />
         <BeyondTerminalSection />

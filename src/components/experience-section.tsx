@@ -16,13 +16,13 @@ import {
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Verified metrics strictly from resume
+// Verified metrics strictly aligned with resume & career totals
 const verifiedMetrics = [
+  { value: "< 2 mins", label: "Dev Setup Time", sub: "Down from 3–4 days · One-Click Installer" },
   { value: "30+", label: "Production Defects Resolved", sub: "iBanking (MY, SG, HK)" },
-  { value: "80+", label: "CVEs Remediated", sub: "20+ Critical CVEs" },
-  { value: "<2 mins", label: "Dev Setup Time", sub: "Down from 3–4 days" },
-  { value: "40% → 60%", label: "Test Coverage Increase", sub: "Achieved in 1 month" },
-  { value: "320+", label: "Unit & Regression Tests", sub: "JUnit & Mockito" },
+  { value: "80+", label: "Total CVEs Remediated", sub: "Career Total Across Roles · 20+ Critical" },
+  { value: "40% → 60%", label: "Test Coverage Increase", sub: "Achieved in 1 Month · CEMS Platform" },
+  { value: "320+", label: "Total Automated Tests", sub: "Career Total · 200+ iBanking, 120+ CEMS" },
 ];
 
 export function ExperienceSection() {
@@ -151,36 +151,39 @@ export function ExperienceSection() {
                 </div>
               </div>
 
-              {/* VISUALLY PROMINENT HIGHLIGHT: Developer Installer Achievement */}
+              {/* TOP DIFFERENTIATOR: Developer Installer Achievement */}
               <a
                 href="https://chandrani09sd.github.io/ScSetup/SC-Setup-Market-Slide-Recreated.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View One-Click Developer Installer Automation interactive slide"
-                className="group mt-8 block rounded-2xl border-2 border-[var(--golden)]/60 bg-gradient-to-r from-[rgba(244,199,138,0.28)] via-cream/90 to-[rgba(232,138,85,0.2)] p-6 shadow-sm transition-all duration-300 hover:border-[var(--golden)] hover:shadow-md hover:scale-[1.005]"
+                className="group mt-8 block rounded-2xl border-2 border-[var(--golden)]/70 bg-gradient-to-r from-[rgba(244,199,138,0.32)] via-cream/90 to-[rgba(232,138,85,0.24)] p-6 shadow-sm transition-all duration-300 hover:border-[var(--golden)] hover:shadow-md hover:scale-[1.005]"
               >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div className="flex items-start gap-3.5">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--ember)] text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--ember)] text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
                       <Zap className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-display text-[17px] font-semibold text-foreground group-hover:text-[var(--ember)] transition-colors">
+                        <span className="font-display text-[18px] font-semibold text-foreground group-hover:text-[var(--ember)] transition-colors">
                           One-Click Developer Installer Automation
                         </span>
                         <span className="rounded-full border border-[var(--ember)]/30 bg-[var(--ember)]/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--ember)]">
-                          Standout Achievement
+                          Top Differentiator
+                        </span>
+                        <span className="rounded-full border border-[var(--golden)]/40 bg-[var(--golden)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--ember)]">
+                          Internal Engineering Forum
                         </span>
                       </div>
                       <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-foreground/85">
-                        Engineered a one-click automated installer that provisions certificates,
-                        secrets, Kubernetes ConfigMaps, Logback logging profiles, and environment
-                        configurations — collapsing local development setup from{" "}
+                        Engineered a one-click automated developer installer that generates certificates, secures credentials,
+                        deploys Kubernetes ConfigMaps, configures Logback logging profiles, and standardizes multi-region environment variables —
+                        collapsing local developer environment onboarding from{" "}
                         <strong className="text-foreground underline decoration-[var(--golden)] decoration-2 underline-offset-4">
                           3–4 days to under 2 minutes
                         </strong>
-                        . Presented the solution internally, leading to wider adoption across engineering teams.
+                        . Presented the solution at an internal engineering forum, where it was adopted across cross-functional engineering teams.
                       </p>
                     </div>
                   </div>
@@ -202,28 +205,28 @@ export function ExperienceSection() {
                   <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--golden)]" />
                     <p className="text-[13px] leading-relaxed text-foreground/85">
-                      <strong>30+ Production Defects Resolved:</strong> Traced and remediated high-severity defects across Malaysia, Singapore, and Hong Kong banking portals end-to-end.
+                      <strong>30+ Production Defects Resolved:</strong> Traced, diagnosed, and remediated 30+ high-severity defects across Malaysia, Singapore, and Hong Kong banking portals end-to-end with zero regressions.
                     </p>
                   </div>
 
                   <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                     <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-[var(--ember)]" />
                     <p className="text-[13px] leading-relaxed text-foreground/85">
-                      <strong>20+ Security Vulnerabilities Remediated:</strong> Addressed critical CVEs, coordinated penetration testing (SPT), and secured formal security sign-offs.
+                      <strong>20+ Security Vulnerabilities Remediated:</strong> Remediated 20+ critical CVEs across banking modules, coordinated software penetration testing (SPT), and secured formal enterprise security sign-offs.
                     </p>
                   </div>
 
                   <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                     <Terminal className="mt-0.5 h-4 w-4 shrink-0 text-[var(--golden)]" />
                     <p className="text-[13px] leading-relaxed text-foreground/85">
-                      <strong>Hong Kong Release Primary Developer:</strong> Led release coordination, security validation, technical sign-offs, deployment procedures, and live rollout.
+                      <strong>Primary Release Developer for Hong Kong Rollout:</strong> Led release coordination, technical dependency sign-offs, deployment procedures, live rollout execution, and post-release warranty.
                     </p>
                   </div>
 
                   <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                     <Layers className="mt-0.5 h-4 w-4 shrink-0 text-[var(--ember)]" />
                     <p className="text-[13px] leading-relaxed text-foreground/85">
-                      <strong>200+ Unit & Regression Tests:</strong> Built robust JUnit suites and supported Singapore MLR40 performance-testing readiness with Airflow batch workflows.
+                      <strong>200+ JUnit / Regression Tests Authored:</strong> Built 200+ comprehensive JUnit and Mockito test suites to safeguard core transaction paths; supported Singapore MLR40 performance test readiness with Apache Airflow batch workflows.
                     </p>
                   </div>
                 </div>
@@ -247,17 +250,17 @@ export function ExperienceSection() {
                       Capgemini
                     </span>
                     <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-800">
-                      🛡️ 60+ Vulnerabilities Remediated
+                      🛡️ 60+ Vulnerabilities Remediated (20+ Critical)
                     </span>
                     <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-[11px] font-medium text-purple-800">
-                      🧪 40% → 60% Code Coverage
+                      🧪 40% → 60% Test Coverage in 1 Mo
                     </span>
-                    <span className="rounded-full border border-border/70 bg-cream px-3 py-1 text-[11px] font-medium tracking-wide text-muted-foreground">
-                      Client & Enterprise Management Systems (CEMS)
+                    <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[11px] font-medium text-amber-800">
+                      ⚙️ 5xx Root-Cause Analysis
                     </span>
                   </div>
                   <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                    Standard Chartered Bank — CEMS Application
+                    Standard Chartered Bank — Client & Enterprise Management Systems (CEMS)
                   </h3>
                   <p className="mt-1 text-[14px] text-muted-foreground">
                     Software Engineer · Backend API services, security remediation, and quality engineering
@@ -275,28 +278,28 @@ export function ExperienceSection() {
                 <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                   <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-[var(--ember)]" />
                   <p className="text-[13px] leading-relaxed text-foreground/85">
-                    <strong>60+ Security Vulnerabilities Remediated:</strong> Closed 60+ vulnerabilities including <strong>20+ critical vulnerabilities</strong>, protecting core banking persistence layers.
+                    <strong>60+ Security Vulnerabilities Remediated (20+ Critical):</strong> Systematically closed 60+ vulnerabilities including <strong>20+ critical CVEs</strong>, fortifying core banking persistence layers and securing compliance.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                   <Zap className="mt-0.5 h-4 w-4 shrink-0 text-[var(--golden)]" />
                   <p className="text-[13px] leading-relaxed text-foreground/85">
-                    <strong>Test Coverage 40% → 60% in 1 Month:</strong> Designed 120+ targeted unit tests and 200+ regression cases, drastically reducing defect leakage.
+                    <strong>Test Coverage 40% → 60% in 1 Month:</strong> Designed and implemented 120+ targeted unit tests and 200+ regression tests in JUnit/Mockito, establishing automated gates that drastically cut defect leakage.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                   <Terminal className="mt-0.5 h-4 w-4 shrink-0 text-[var(--golden)]" />
                   <p className="text-[13px] leading-relaxed text-foreground/85">
-                    <strong>HTTP 5xx Failure Resolution:</strong> Traced REST API → Service → Database flows and analyzed Kubernetes pod logs to resolve intermittent production bottlenecks.
+                    <strong>5xx Production Root-Cause Analysis:</strong> Traced failure cascades across REST API → Service → Database layers and inspected Kubernetes pod logs to resolve intermittent production bottlenecks.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-cream/50 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--golden)]/60 hover:bg-cream hover:shadow-sm">
                   <Cpu className="mt-0.5 h-4 w-4 shrink-0 text-[var(--ember)]" />
                   <p className="text-[13px] leading-relaxed text-foreground/85">
-                    <strong>CI/CD & Kubernetes Deployments:</strong> Validated automated pipeline builds and deployed approved Docker images to Kubernetes clusters through SIT, UAT, and prod releases.
+                    <strong>CI/CD & Container Deployments:</strong> Validated automated pipeline builds and deployed verified Docker container images to Kubernetes clusters through SIT, UAT, and production warranty.
                   </p>
                 </div>
               </div>
